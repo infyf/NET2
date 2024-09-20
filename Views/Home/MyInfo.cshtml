@@ -1,0 +1,29 @@
+﻿@{
+    var person = ViewBag.Person as lr2_Company.Models.Person;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Info</title>
+</head>
+<body>
+    <h1>Information About Me</h1>
+
+    @if (person != null)
+
+    {
+        <p>Name: @person.Name</p>
+        <p>Age: @person.Age</p>
+        <p>Email: @person.Email</p>
+        <p>Study: @person.Study</p>
+        <p>Course: @person.Course</p>
+    }
+
+    else
+
+    {
+        <p>No information found.</p>
+    }
+</body>
+</html>

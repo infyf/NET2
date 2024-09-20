@@ -1,0 +1,23 @@
+﻿@{
+    var topCompany = ViewBag.TopCompany as lr2_Company.Models.Company;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top Company</title>
+</head>
+<body>
+    <h1>Company with the Most Employees</h1>
+    @if (topCompany != null)
+    {
+        <p>Name: @topCompany.Name</p>
+        <p>Employees: @topCompany.Employees</p>
+    }
+    else
+    {
+        <p>No companies found.</p>
+    }
+
+</body>
+</html>
