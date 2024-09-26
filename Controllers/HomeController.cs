@@ -1,8 +1,7 @@
-using lr2_Comp.Controllers;
-using lr2_Company.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Text.Json;
+using lr2_Company.Models;
 
 namespace lr2_Company.Controllers
 {
@@ -10,11 +9,10 @@ namespace lr2_Company.Controllers
     {
         private readonly CompanyService _companyService;
 
-        public HomeController()
+        public HomeController(CompanyService companyService)
         {
-            _companyService = new CompanyService();
+            _companyService = companyService;
         }
-
 
         public IActionResult Index()
         {
@@ -23,7 +21,6 @@ namespace lr2_Company.Controllers
             return View();
         }
 
-        // Метод для виведення інформації з JSON
         public IActionResult MyInfo()
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "MyName.json");
@@ -36,7 +33,7 @@ namespace lr2_Company.Controllers
             }
 
             ViewBag.Person = personData;
-            return View("MyInfo"); 
+            return View();
         }
     }
 }
